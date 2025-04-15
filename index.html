@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>栃尾高校 - わくわく教室紹介！</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap");
+
+      :root {
+        /* IKEAのカラー */
+        --bg-color: #ffffff;
+        --primary-color: #0051ba; /* IKEA青 */
+        --secondary-color: #ffda1a; /* IKEA黄色 */
+        --accent-color-1: #0051ba; /* 青をアクセントにも使用 */
+        --accent-color-2: #ffda1a; /* 黄色をアクセントにも使用 */
+        --accent-color-3: #333333; /* アクセントに使用する黒 */
+        --text-color: #333333;
+        --light-shadow: rgba(255, 255, 255, 0.8);
+        --dark-shadow: rgba(0, 0, 0, 0.1);
+        --border-radius: 18px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "M PLUS Rounded 1c", "Kosugi Maru", sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: var(--bg-color);
+        background-image: 
+          radial-gradient(#0051ba10 1px, transparent 1px),
+          radial-gradient(#ffda1a10 1px, transparent 1px);
+        background-size: 30px 30px;
+        background-position: 0 0, 15px 15px;
+        padding: 0;
+        margin: 0;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem;
+      }
+
+      /* ニューモーフィズム用のミキシン的なクラス */
+      .neomorphic {
+        border-radius: var(--border-radius);
+        background: var(--bg-color);
+        box-shadow: 8px 8px 16px var(--dark-shadow),
+                   -8px -8px 16px var(--light-shadow);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .neomorphic:hover {
+        transform: translateY(-5px);
+      }
+
+      .neomorphic-inset {
+        border-radius: var(--border-radius);
+        background: var(--bg-color);
+        box-shadow: inset 5px 5px 10px var(--dark-shadow),
+                   inset -5px -5px 10px var(--light-shadow);
+      }
+
+      /* ヘッダー */
+      header {
+        padding: 3rem 2rem 2rem;
+        text-align: center;
+        position: relative;
+        margin-bottom: 3rem;
+        overflow: hidden;
+      }
+
+      .header-content {
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+        padding: 2.5rem;
+        border: 4px solid var(--primary-color);
+        position: relative;
+      }
+
+      .header-content::before {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
+        border: 4px dashed var(--secondary-color);
+        border-radius: var(--border-radius);
+        z-index: -1;
+      }
+
+      .header-decorations {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+        overflow: hidden;
+      }
+
+      .decoration {
+        position: absolute;
+        border-radius: 50%;
+      }
+
+      .decoration:nth-child(1) {
+        width: 80px;
+        height: 80px;
+        background-color: var(--primary-color);
+        top: 10%;
+        left: 10%;
+        opacity: 0.4;
+      }
+
+      .decoration:nth-child(2) {
+        width: 120px;
+        height: 120px;
+        background-color: var(--secondary-color);
+        top: 20%;
+        right: 15%;
+        opacity: 0.3;
+      }
+
+      .decoration:nth-child(3) {
+        width: 60px;
+        height: 60px;
+        background-color: var(--primary-color);
+        bottom: 15%;
+        left: 20%;
+        opacity: 0.5;
+      }
+
+      h1 {
+        font-size: 2.8rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
+        letter-spacing: 0.05em;
+        text-shadow: 2px 2px 0px rgba(0, 81, 186, 0.2);
+        position: relative;
+        display: inline-block;
+      }
+
+      h1::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        height: 6px;
+        background: var(--secondary-color);
+        border-radius: 3px;
+      }
+
+      h2 {
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
+        position: relative;
+        display: inline-block;
+      }
+
+      h3 {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        margin-bottom: 1rem;  
+        position: relative;
+        display: inline-block;
+      }
+
+      h3::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: var(--secondary-color);
+        border-radius: 1.5px;
+      }
+
+      p {
+        margin-bottom: 1.5rem;
+        font-weight: 400;
+        font-size: 1.1rem;
+      }
+
+      /* イントロセクション */
+      .intro {
+        padding: 2.5rem;
+        margin-bottom: 3rem;
+        position: relative;
+        border: 2px solid var(--primary-color);
+      }
+
+      /* メインコンテンツエリア */
+      .content-section {
+        padding: 2.5rem;
+        margin-bottom: 3rem;
+        position: relative;
+        border: 2px solid var(--primary-color);
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 2rem;
+        position: relative;
+        padding-bottom: 0.5rem;
+      }
+
+      .section-title::before {
+        content: "⭐";
+        position: absolute;
+        left: 50%;
+        top: -30px;
+        transform: translateX(-50%);
+        font-size: 1.8rem;
+        color: var(--secondary-color);
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: var(--secondary-color);
+        border-radius: 2px;
+      }
+
+      /* タブナビゲーション */
+      .tab-container {
+        margin-top: 2.5rem;
+      }
+
+      .tab-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-bottom: 2rem;
+        justify-content: center;
+      }
+
+      .tab-button {
+        background: var(--bg-color);
+        border: 3px solid var(--primary-color);
+        border-radius: 50px;
+        padding: 12px 24px;
+        font-weight: 700;
+        color: var(--primary-color);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 1.1rem;
+        box-shadow: 4px 4px 0px var(--primary-color);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .tab-button::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+        transition: all 0.6s ease;
+      }
+
+      .tab-button:hover::before {
+        left: 100%;
+      }
+
+      .tab-button.active {
+        color: white;
+        background-color: var(--primary-color);
+        transform: translate(2px, 2px);
+        box-shadow: 2px 2px 0px var(--primary-color);
+      }
+
+      .tab-button:hover:not(.active) {
+        transform: translateY(-3px);
+        box-shadow: 4px 7px 0px var(--primary-color);
+      }
+
+      .tab-content {
+        display: none;
+        padding: 1rem;
+      }
+
+      .tab-content.active {
+        display: block;
+        animation: fadeIn 0.5s ease forwards;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      /* Matterportコンテナ */
+      .matterport-container {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%; /* 16:9 アスペクト比 */
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        margin: 2rem 0;
+        box-shadow: inset 3px 3px 6px var(--dark-shadow),
+                   inset -3px -3px 6px var(--light-shadow);
+        border: 4px solid var(--secondary-color);
+      }
+
+      .matterport-container::before {
+        content: "クリック＆ドラッグで見回せるよ！";
+        position: absolute;
+        top: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: var(--secondary-color);
+        color: var(--text-color);
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-weight: bold;
+        z-index: 10;
+        font-size: 0.9rem;
+      }
+
+      .matterport-iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: calc(var(--border-radius) - 4px);
+      }
+
+      /* 教室詳細 */
+      .room-details {
+        padding: 2rem;
+        margin-top: 2rem;
+        border-radius: var(--border-radius);
+        background: var(--bg-color);
+        box-shadow: inset 3px 3px 6px var(--dark-shadow),
+                   inset -3px -3px 6px var(--light-shadow);
+        border: 3px dashed var(--secondary-color);
+      }
+
+      .fun-fact {
+        padding: 1.5rem;
+        margin-top: 1.5rem;
+        border-radius: var(--border-radius);
+        display: flex;
+        align-items: flex-start;
+        background: var(--bg-color);
+        box-shadow: inset 3px 3px 6px var(--dark-shadow),
+                   inset -3px -3px 6px var(--light-shadow);
+        border: 2px solid var(--primary-color);
+        position: relative;
+      }
+
+      .fun-fact::before {
+        content: "ひみつ情報!";
+        position: absolute;
+        top: -12px;
+        left: 20px;
+        background-color: var(--primary-color);
+        color: white;
+        padding: 3px 15px;
+        border-radius: 15px;
+        font-size: 0.9rem;
+        font-weight: bold;
+      }
+
+      .fun-fact svg {
+        flex-shrink: 0;
+        width: 28px;
+        height: 28px;
+        margin-right: 15px;
+        fill: var(--primary-color);
+      }
+
+      /* ボタン */
+      .button-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 3rem;
+      }
+
+      .button {
+        display: inline-block;
+        background: var(--secondary-color);
+        color: var(--text-color);
+        padding: 1rem 2.5rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 0 rgba(0,0,0,0.2);
+        border: none;
+        outline: none;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .button::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+        transition: all 0.6s ease;
+      }
+
+      .button:hover::before {
+        left: 100%;
+      }
+
+      .button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 0 rgba(0,0,0,0.2);
+      }
+
+      .button:active {
+        transform: translateY(3px);
+        box-shadow: 0 2px 0 rgba(0,0,0,0.2);
+      }
+
+      /* フッター */
+      footer {
+        padding: 3rem 2rem;
+        text-align: center;
+        color: var(--primary-color);
+        margin-top: 3rem;
+        position: relative;
+      }
+
+      .footer-content {
+        max-width: 600px;
+        margin: 0 auto;
+        font-weight: bold;
+        font-size: 1.1rem;
+      }
+
+      .footer-decorations {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 6px;
+        background: repeating-linear-gradient(
+          45deg,
+          var(--primary-color),
+          var(--primary-color) 10px,
+          var(--secondary-color) 10px,
+          var(--secondary-color) 20px
+        );
+      }
+
+      /* スマホ対応 */
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2rem;
+        }
+
+        h2 {
+          font-size: 1.7rem;
+        }
+
+        .intro, .content-section {
+          padding: 1.5rem;
+        }
+
+        .tab-button {
+          padding: 10px 16px;
+          font-size: 0.9rem;
+        }
+
+        .room-details {
+          padding: 1.5rem;
+        }
+      }
+
+      /* 回転するアイコン */
+      .rotating-icon {
+        display: inline-block;
+        animation: rotate 10s linear infinite;
+      }
+
+      @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+
+      /* ワクワク感を出すためのアニメーション */
+      .bounce {
+        display: inline-block;
+        animation: bounce 2s ease infinite;
+      }
+
+      @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+        40% {transform: translateY(-15px);}
+        60% {transform: translateY(-7px);}
+      }
+
+      /* タブに合わせた色変更 - IKEAカラーに統一 */
+      #classroom .room-details,
+      #workshop .room-details,
+      #computer .room-details,
+      #welfare .room-details,
+      #library .room-details {
+        border-color: var(--secondary-color);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-decorations">
+        <div class="decoration"></div>
+        <div class="decoration"></div>
+        <div class="decoration"></div>
+      </div>
+      <div class="header-content neomorphic">
+        <h1>栃尾高校 <span class="bounce">わくわく</span> 教室紹介！</h1>
+        <p>🌟 新入生のみなさん、ようこそ！ 🌟</p>
+      </div>
+    </header>
+
+    <div class="container">
+　　　　<section class="intro neomorphic" style="padding: 2rem 1.5rem;">
+        <h2>栃尾高校へようこそ <span class="rotating-icon">🎉</span></h2>
+        <p>
+          <span style="font-weight: bold; color: var(--primary-color);">やっほー！</span> 栃尾高校の教室や施設をバーチャルで見学できるページへようこそ。入学前に学校の様子をチェックして、新生活をワクワクしながら迎えよう！
+        </p>
+        <p>
+          このページでは、実際の教室を3D映像で見ることができるよ。まるで学校にいるような体験をエンジョイしてね！
+        </p>
+
+        <div class="fun-fact">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path
+              d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"
+            />
+          </svg>
+          <span>
+            栃尾高校のキャンパスには、<strong style="color: var(--primary-color);">秘密の場所</strong>がいくつか隠れているかも...バーチャルツアーで探検してみよう！
+          </span>
+        </div>
+      </section>
+
+    <section class="content-section neomorphic" style="padding: 2rem 1.5rem;">
+        <h2 class="section-title">3Dバーチャルツアー</h2>
+        <p>
+          スマホやパソコンから学校内を自由に探検できるよ！矢印をクリックして移動したり、ドラッグして見回したりしてみよう！
+        </p>
+
+        <div class="tab-container">
+          <div class="tab-buttons">
+            <button class="tab-button active" data-tab="classroom">一般教室</button>
+            <button class="tab-button" data-tab="workshop">工業実習室</button>
+            <button class="tab-button" data-tab="computer">パソコン室</button>
+            <button class="tab-button" data-tab="welfare">福祉実習室</button>
+            <button class="tab-button" data-tab="library">図書館</button>
+          </div>
+
+          <div class="tab-content active" id="classroom">
+            <div class="matterport-container">
+              <iframe
+                class="matterport-iframe"
+                src="https://my.matterport.com/show/?m=dRUNSBnCGn6"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="room-details">
+              <h3>一般教室</h3>
+              <p>
+                毎日過ごす明るい教室だよ！窓からは校庭が見えるし、授業や友達との楽しい時間を過ごす大切な場所なんだ。
+                友達とのおしゃべりも、真剣な授業も、すべての思い出がここで生まれるよ！
+              </p>
+              <div class="fun-fact">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                  <path
+                    d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"
+                  />
+                </svg>
+                <span>
+                  教室の中をよく見ると、先輩たちの作った掲示物や記念品が飾られているよ。宝探しみたいに探してみよう！
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-content" id="workshop">
+            <div class="matterport-container">
+              <iframe
+                class="matterport-iframe"
+                src="https://my.matterport.com/show/?m=41kCQ5JVd3P"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="room-details">
+              <h3>工業実習室</h3>
+              <p>
+                カッコいい専門的な技術を学べる特別な教室だよ！本格的な工具や機械があって、将来役立つスキルを身につけられるんだ。
+                ものづくりが好きな人にはたまらない場所だね！
+              </p>
+              <div class="fun-fact">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                  <path
+                    d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"
+                  />
+                </svg>
+                <span>
+                  先輩たちが作った超クールな作品も展示されているよ！どんな素敵なものがあるか探検してみよう！
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-content" id="computer">
+            <div class="matterport-container">
+              <iframe
+                class="matterport-iframe"
+                src="https://my.matterport.com/show/?m=9g9sJdfvSbS"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="room-details">
+              <h3>パソコン室</h3>
+              <p>
+                最新のパソコンでプログラミングや情報処理の勉強ができるハイテク教室だよ！インターネットを使った調べ学習もここで行うんだ。
+                将来役立つデジタルスキルを楽しく学べる場所だよ！
+              </p>
+              <div class="fun-fact">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                  <path
+                    d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"
+                  />
+                </svg>
+                <span>
+                  プログラミング部のメンバーは、自分たちで作ったゲームで遊ぶこともあるんだって！あなたも入部すれば一緒に作れるかも？
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-content" id="welfare">
+            <div class="matterport-container">
+              <iframe
+                class="matterport-iframe"
+                src="https://my.matterport.com/show/?m=hTd51kwFFBb"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="room-details">
+              <h3>福祉実習室</h3>
+              <p>
+                介護や福祉について学べる特別な教室だよ！実際のケアの方法や支援の技術を、体験しながら学ぶことができるんだ。
+                人の役に立つ仕事に興味がある人は、ここでいろんなことを学べるよ！
+              </p>
+              <div class="fun-fact">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                  <path
+                    d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"
+                  />
+                </svg>
+                <span>
+                  福祉実習室では、地域のお年寄りとの交流イベントも開催されるんだ！みんなの笑顔があふれる素敵な場所だよ！
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-content" id="library">
+            <div class="matterport-container">
+              <iframe
+                class="matterport-iframe"
+                src="https://my.matterport.com/show/?m=6sMg67VtrE8"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="room-details">
+              <h3>図書館</h3>
+              <p>
+                たくさんの本が並ぶ静かな空間だよ！小説から参考書まで、いろんなジャンルの本があって、読書や勉強に最適な場所なんだ。
+                ゆったりとした時間を過ごせる、みんなのお気に入りスポットになるはず！
+              </p>
+              <div class="fun-fact">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                  <path
+                    d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"
+                  />
+                </svg>
+                <span>
+                  昼休みは人気の場所なんだ！早めに行かないと、お気に入りの席が取れないかもしれないよ。ひみつの人気スポットを見つけてみよう！
+                </span>
+              </div>
+            </div>
+          </div>
+
+</div>
+      </div>
+
+
+    </section>
+
+    <section class="content-section neomorphic">
+      <h2 class="section-title">入学前によくある質問</h2>
+      <div class="room-details">
+        <h3>一日のスケジュールは？</h3>
+        <p>
+          通常、8:30に登校して、8:45から朝のホームルームが始まるよ。授業は50分×6時間が基本だけど、週に数回は7時間目があるよ。放課後は部活動や自主学習の時間があって、みんな充実した日々を過ごしているんだ！
+        </p>
+      </div>
+
+      <div class="room-details">
+        <h3>部活動はどんなものがある？</h3>
+        <p>
+          運動部は野球、サッカー、バスケットボール、バレーボール、テニス、陸上などがあるよ。文化部はパソコン、美術、吹奏楽、茶道、写真部などがあって、どの部活も活気あふれる活動をしているんだ！自分に合った部活を見つけてね！
+        </p>
+      </div>
+
+      <div class="room-details">
+        <h3>学校行事は何がある？</h3>
+        <p>
+          春の遠足、夏の体育祭、秋の文化祭、冬のマラソン大会など、季節ごとに楽しい行事があるよ！どの行事も栃尾高校の伝統と新しいアイデアが融合した、とっても思い出に残るものばかりだよ！
+        </p>
+        <div class="fun-fact">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path
+              d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7-24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"
+            />
+          </svg>
+          <span>
+            文化祭では、各クラスの出し物のほかに、先生たちによる秘密の出し物があるって噂だよ！どんなサプライズがあるか、入学したら確かめてみよう！
+          </span>
+        </div>
+      </div>
+    </section>
+</section>
+
+<!-- セクション間にスペースを追加 -->
+<div style="height: 2rem;"></div>
+
+<section class="content-section neomorphic">
+
+
+    <section class="content-section neomorphic">
+      <h2 class="section-title">新入生へのメッセージ</h2>
+      <p>
+        栃尾高校は、あなたの「やりたい！」を応援する学校です。勉強も部活も行事も、何でも全力で楽しめる環境が整っています。
+        先生たちも先輩たちも、あなたの高校生活を全力でサポートします！新しい友達とたくさんの思い出を作りましょう！
+      </p>
+      <div class="button-container">
+        <a href="#" class="button">入学案内をもっと見る</a>
+      </div>
+    </section>
+  </div>
+
+</section>
+
+<!-- セクション間にスペースを追加 -->
+<div style="height: 2rem;"></div>
+
+<section class="content-section neomorphic">
+
+
+  <footer>
+    <div class="footer-content">
+      <p>栃尾高等学校 - 未来へつながる学びの場所</p>
+      <p>〒940-0234 新潟県長岡市栃尾○○町1234番地</p>
+      <p>TEL: 0258-XX-XXXX</p>
+    </div>
+    <div class="footer-decorations"></div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const tabButtons = document.querySelectorAll(".tab-button");
+      const tabContents = document.querySelectorAll(".tab-content");
+      
+      tabButtons.forEach(button => {
+        button.addEventListener("click", function() {
+          const tabId = this.getAttribute("data-tab");
+          
+          // タブボタンのアクティブ状態を切り替え
+          tabButtons.forEach(btn => btn.classList.remove("active"));
+          this.classList.add("active");
+          
+          // タブコンテンツの表示を切り替え
+          tabContents.forEach(content => {
+            content.classList.remove("active");
+            if (content.id === tabId) {
+              content.classList.add("active");
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>
